@@ -16,13 +16,19 @@ float z = 5.0f;
 float angulo = 0.0f;
 
 void drawObject(){
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	
-	//Corpo
+		
+	//Objeto
 	glColor3f(0.0f, 0.0f, 1.0f);	
 	glTranslatef(0.0f,0.75f,0.0f);
-	glutWireCube(0.3);
+	glutWireCube(0.5);
+	
+	glColor3f(0.0f, 0.0f, 1.0f);	
+	glTranslatef(0.0f,0.50f,0.0f);
+	glutWireCube(0.5);
+	
+	glColor3f(0.0f, 0.0f, 1.0f);	
+	glTranslatef(0.0f,0.45f,0.0f);
+	glutWireSphere(0.2,20,10);
 
 }
 
@@ -42,7 +48,7 @@ void changeSize(int w, int h){
 void renderScene(void){
 	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+	glClearColor(0.2f, 0.6f, 0.9f, 1.0f);
 	glLoadIdentity();
 	
 // Camera
@@ -51,7 +57,7 @@ void renderScene(void){
 			   0.0f, 1.0f, 0.0f);
 
 // Draw ground
-	glColor3f(0.9f, 0.9f, 0.9f);
+	glColor3f(0.2f, 0.8f, 0.2f);
 	glBegin(GL_QUADS);
 	glVertex3f(-100.0f, 0.0f, -100.0f);
 	glVertex3f(-100.0f, 0.0f, 100.0f);
@@ -59,15 +65,9 @@ void renderScene(void){
 	glVertex3f( 100.0f, 0.0f, -100.0f);
 	glEnd();
 
-// Draw 36 SnowMen
-	// for(int i = -3; i < 3; i++)
-	// 	for(int j = -3; j < 3; j++)
-	// 	{
-	 		glPushMatrix();
-	// 		glTranslatef(i * 10.0, 0, j * 10.0);
-	 		drawObject();
-	 		glPopMatrix();
-	// 	}
+	glPushMatrix();
+	drawObject();
+	glPopMatrix();
 
 	glutSwapBuffers();
 }
