@@ -72,20 +72,37 @@ void drawObject(){
 	glColor3f(1.0f, 0.0f, 0.0f);	
 	glTranslatef(-0.05f,1.06f,0.0f);
 	glutWireCube(0.3f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(-0.0f,0.3f,0.0f);
+	glutWireCube(0.3f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(-0.0f,0.3f,0.0f);
+	glutWireCube(0.3f);
 	glPopMatrix();
 
 	glPushMatrix();
 	glColor3f(1.0f, 0.0f, 0.0f);	
 	glTranslatef(0.25f,1.06f,0.0f);
 	glutWireCube(0.3f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.3f,0.0f);
+	glutWireCube(0.3f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.3f,0.0f);
+	glutWireCube(0.3f);
 	glPopMatrix();
 	
 	
-	// glPushMatrix();
-	// glColor3f(1.0f, 0.0f, 0.0f);	
-	// glTranslatef(0.0f,0.45f,0.0f);
-	// glutWireSphere(0.2,20,10);
-	// glPopMatrix();
+	// Cabeça
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.10f,2.0f,0.0f);
+	glutWireCube(0.35f);
+	glPopMatrix();
 	
 }
 
