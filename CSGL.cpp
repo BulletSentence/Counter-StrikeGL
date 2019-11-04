@@ -9,10 +9,12 @@
 // Direção da camera
 float direcaox = 0.0f;
 float direcaoz = -1.0f;	
+float direcaoy = 1.0f;
 
 // Camera / Visão
 float x = 0.0f; 
 float z = 5.0f;
+float y = 0.5f;
 float angulo = 0.0f;
 
 void drawObject(){
@@ -97,6 +99,35 @@ void drawObject(){
 	glPopMatrix();
 	
 	
+	// Braço
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.5f,1.70f,0.0f);
+	glutWireCube(0.2f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.2f,0.0f,0.0f);
+	glutWireCube(0.2f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.2f,0.0f,0.0f);
+	glutWireCube(0.2f);
+	glPopMatrix();
+	
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(-0.3f,1.70f,0.0f);
+	glutWireCube(0.2f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(-0.2f,0.0f,0.0f);
+	glutWireCube(0.2f);
+	
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(-0.2f,0.0f,0.0f);
+	glutWireCube(0.2f);
+  	glPopMatrix();
+	
 	// Cabeça
 	glPushMatrix();
 	glColor3f(1.0f, 0.0f, 0.0f);	
@@ -109,19 +140,25 @@ void drawObject(){
 void drawWeapon(){
 	
 	// Arma / Braço
-	glPushMatrix();
-	glColor3f(0.0f, 0.0f, 1.0f);
-	glTranslatef(x + direcaox ,0.8f, z + direcaoz + 0.4f);
-	glRotatef(0.03f, direcaox, 0.0f, direcaoz);
-	glutWireCube(0.1f);
-	glPopMatrix();
+	// glPushMatrix();
+	// glColor3f(0.0f, 0.0f, 1.0f);
+	// glTranslatef(x + direcaox ,0.8f, z + direcaoz + 0.4f);
+	// glRotatef(angulo, x + direcaox, direcaoy, z + direcaoz);
+	// glutWireCube(0.1f);
+	// glPopMatrix();
 	
 }
 
-void walkMoviment(){
+float walkMoviment(){
 	
+	if (direcaoy == 1.0f){
+		direcaoy += 0.05f;
+	}
+	if (direcaoy == 1.5f){
+		direcaoy -= 0.05f;
+	}
 	
-	
+	return direcaoy;
 }
 
 void changeSize(int w, int h){
@@ -145,7 +182,7 @@ void renderScene(void){
 	
 // Camera
 	gluLookAt( x, 1.0f, z,
-	   	   	   x + direcaox, 1.0f, z + direcaoz,
+	   	   	   x + direcaox, direcaoy, z + direcaoz,
 			   0.0f, 1.0f, 0.0f);
 
 // Terreno
@@ -159,12 +196,10 @@ void renderScene(void){
 
 	glPushMatrix();
 	drawObject();
-    drawWeapon();
+	drawWeapon();
 	glPopMatrix();
-
 	glutSwapBuffers();
 }
-
 
 void SpecialKeys(int key, int xx, int yy){
 
@@ -183,13 +218,16 @@ void SpecialKeys(int key, int xx, int yy){
 		break;
 
 	case GLUT_KEY_UP :
+	//	walkMoviment();
 		x += direcaox * 0.1f;
 		z += direcaoz * 0.1f;
 		break;
 
 	case GLUT_KEY_DOWN :
+	//	walkMoviment();
 		x -= direcaox * 0.1f;
 		z -= direcaoz * 0.1f;
+
 		break;
 	}
 }
