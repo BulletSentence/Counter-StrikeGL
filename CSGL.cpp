@@ -8,28 +8,42 @@
 
 // Direção da camera
 float direcaox = 0.0f;
-float direcaoz = -1.0f;
+float direcaoz = -1.0f;	
 
-// Camera
-float x = 0.0f;
+// Camera / Visão
+float x = 0.0f; 
 float z = 5.0f;
 float angulo = 0.0f;
 
 void drawObject(){
 		
 	//Objeto
+	glPushMatrix();
 	glColor3f(0.0f, 0.0f, 1.0f);	
 	glTranslatef(0.0f,0.75f,0.0f);
 	glutWireCube(0.5);
 	
+	glPushMatrix();
 	glColor3f(0.0f, 0.0f, 1.0f);	
 	glTranslatef(0.0f,0.50f,0.0f);
 	glutWireCube(0.5);
-	
+
+	glPushMatrix();
 	glColor3f(0.0f, 0.0f, 1.0f);	
 	glTranslatef(0.0f,0.45f,0.0f);
 	glutWireSphere(0.2,20,10);
+	glPopMatrix();
+	
+}
 
+void drawWeapon(){
+	
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glTranslatef(x + direcaox ,0.8f, z + direcaoz + 0.4f);
+	glutWireCube(0.1f);
+	glPopMatrix();
+	
 }
 
 void changeSize(int w, int h){
@@ -53,10 +67,10 @@ void renderScene(void){
 	
 // Camera
 	gluLookAt( x, 1.0f, z,
-			   x + direcaox, 1.0f, z + direcaoz,
+	   	   	   x + direcaox, 1.0f, z + direcaoz,
 			   0.0f, 1.0f, 0.0f);
 
-// Draw ground
+// Terreno
 	glColor3f(0.2f, 0.8f, 0.2f);
 	glBegin(GL_QUADS);
 	glVertex3f(-100.0f, 0.0f, -100.0f);
@@ -67,13 +81,14 @@ void renderScene(void){
 
 	glPushMatrix();
 	drawObject();
+    drawWeapon();
 	glPopMatrix();
 
 	glutSwapBuffers();
 }
 
 
-void processSpecialKeys(int key, int xx, int yy){
+void SpecialKeys(int key, int xx, int yy){
 
 	switch (key){
 	
@@ -112,7 +127,7 @@ int main(int argc, char **argv)
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	glutIdleFunc(renderScene);
-	glutSpecialFunc(processSpecialKeys);
+	glutSpecialFunc(SpecialKeys);
 	glEnable(GL_DEPTH_TEST);
 	glutMainLoop();
 
