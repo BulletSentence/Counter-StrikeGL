@@ -17,32 +17,81 @@ float angulo = 0.0f;
 
 void drawObject(){
 		
-	//Objeto
+	// Hitbox inimigo
+	
+	//------------------------------------------------------
+	
+	// Perna direita
 	glPushMatrix();
-	glColor3f(0.0f, 0.0f, 1.0f);	
-	glTranslatef(0.0f,0.75f,0.0f);
-	glutWireCube(0.5);
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.3f,0.2f,0.0f);
+	glutWireCube(0.2f);
 	
 	glPushMatrix();
-	glColor3f(0.0f, 0.0f, 1.0f);	
-	glTranslatef(0.0f,0.50f,0.0f);
-	glutWireCube(0.5);
-
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.2f,0.0f);
+	glutWireCube(0.2);
+	
 	glPushMatrix();
-	glColor3f(0.0f, 0.0f, 1.0f);	
-	glTranslatef(0.0f,0.45f,0.0f);
-	glutWireSphere(0.2,20,10);
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.2f,0.0f);
+	glutWireCube(0.2);
+	
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.2f,0.0f);
+	glutWireCube(0.2);
 	glPopMatrix();
+	
+	
+	// Perna Equerda
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(-0.1f,0.2f,0.0f);
+	glutWireCube(0.2f);
+	
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.2f,0.0f);
+	glutWireCube(0.2);
+	
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.2f,0.0f);
+	glutWireCube(0.2);
+	
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.0f,0.2f,0.0f);
+	glutWireCube(0.2);
+	glPopMatrix();
+	
+	
+	// Corpo
+	
+	// glPushMatrix();
+	// glColor3f(1.0f, 0.0f, 0.0f);	
+	// glTranslatef(0.0f,0.45f,0.0f);
+	// glutWireSphere(0.2,20,10);
+	// glPopMatrix();
 	
 }
 
 void drawWeapon(){
 	
+	// Arma / Braço
 	glPushMatrix();
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(0.0f, 0.0f, 1.0f);
 	glTranslatef(x + direcaox ,0.8f, z + direcaoz + 0.4f);
+	glRotatef(0.03f, direcaox, 0.0f, direcaoz);
 	glutWireCube(0.1f);
 	glPopMatrix();
+	
+}
+
+void walkMoviment(){
+	
+	
 	
 }
 
