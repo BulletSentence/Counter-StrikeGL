@@ -68,6 +68,18 @@ void drawObject(){
 	
 	
 	// Corpo
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(-0.05f,1.06f,0.0f);
+	glutWireCube(0.3f);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(1.0f, 0.0f, 0.0f);	
+	glTranslatef(0.25f,1.06f,0.0f);
+	glutWireCube(0.3f);
+	glPopMatrix();
+	
 	
 	// glPushMatrix();
 	// glColor3f(1.0f, 0.0f, 0.0f);	
