@@ -3,11 +3,16 @@
  
  Teclas de controle:
  
- * UP - Movimentar para frente
- * DOWN - Movimentar para tras
+ * UP - Movimentar a camera para cima
+ * DOWN - Movimentar a camera para baixo
  * LEFT - Rotacionar camera para esquerda
  * RIGHT - Rotacionar camera para direita
  
-![CSGL3](https://user-images.githubusercontent.com/37451620/68135485-7cc7d800-ff02-11e9-9ccc-be0572e085ec.PNG)
+ * W - Movimenta o personagem para frente
+ * S - Movimenta o personagem para trás
+ * D - Movimenta o personagem para a direita 
+ * A - Movimenta o personagem para a esquerda
+ 
+![CSGL4](https://user-images.githubusercontent.com/37451620/68346487-ff9f8d00-00d2-11ea-8994-4d0dfadc2074.PNG)
 
 
