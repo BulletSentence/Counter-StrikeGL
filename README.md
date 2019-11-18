@@ -3,11 +3,11 @@
  
  Teclas de controle:
  
- * UP - Movimentar para frente
- * DOWN - Movimentar para tras
- * LEFT - Rotacionar camera para esquerda
- * RIGHT - Rotacionar camera para direita
+ * UP - 
+ * DOWN - 
+ * LEFT - 
+ * RIGHT - 
  
-![CSGL3](https://user-images.githubusercontent.com/37451620/68135485-7cc7d800-ff02-11e9-9ccc-be0572e085ec.PNG)
+![CSGL4](https://user-images.githubusercontent.com/37451620/68346487-ff9f8d00-00d2-11ea-8994-4d0dfadc2074.PNG)
 
 
