@@ -244,7 +244,8 @@ void renderScene(void){
 	glutSwapBuffers();
 }
 
-void SpecialKeys(int key, int xx, int yy){
+
+void processSpecialKeys(int key, int xx, int yy){
 
 	switch (key){
 	
@@ -259,44 +260,23 @@ void SpecialKeys(int key, int xx, int yy){
 		direcaox = sin(angulo);
 		direcaoz = -cos(angulo);
 		break;
-	
+
 	case GLUT_KEY_UP :
-		direcaoy += 0.01f;
-		break;
-	
-	case GLUT_KEY_DOWN :
-		direcaoy -= 0.01f;
-		break;
-	}
-}
-
-void keyboard(unsigned char key, int x, int y) {
-
-	switch (key) {
-	case 27:
-		exit(0);
-		break;
-	
-	case 119:
 		x += direcaox * 0.1f;
 		z += direcaoz * 0.1f;
 		break;
-	
-	case 115:
+
+	case GLUT_KEY_DOWN :
 		x -= direcaox * 0.1f;
 		z -= direcaoz * 0.1f;
 		break;
-	
-	default:
-		break;
 	}
-	glutPostRedisplay();
 }
 
 void lightining (void){
 	GLfloat luzAmbiente[4]={0.2,0.2,0.2,1.0};
-	GLfloat luzDifusa[4]={0.7,0.7,0.7,1.0};		 // "cor"
-	GLfloat luzEspecular[4]={1.0, 1.0, 1.0, 1.0};// "brilho"
+	GLfloat luzDifusa[4]={0.7,0.7,0.7,1.0};		  // "cor"
+	GLfloat luzEspecular[4]={0.0, 0.0, 0.0, 1.0}; // "brilho"
 	GLfloat posicaoLuz[4]={0.0, 10.0, 05.0, 1.0};
 
 	// Capacidade de brilho do material
@@ -343,8 +323,7 @@ int main(int argc, char **argv)
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	glutIdleFunc(renderScene);
-	glutSpecialFunc(SpecialKeys);
-	glutKeyboardFunc(keyboard);
+	glutSpecialFunc(processSpecialKeys);;
 	glEnable(GL_DEPTH_TEST);
 	lightining();
 	glutMainLoop();
